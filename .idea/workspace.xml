@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/AliveState.java" afterDir="false" />
+    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Implemented CellState">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/CellState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Cell.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Coordinate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/DeadState.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/GameEntryPoint.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/GameLog.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Grids.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/AliveStateTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/DeadStateTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/CellTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +25,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,8 +61,16 @@
   "keyToString": {
     "Gradle.AliveStateTest.executor": "Run",
     "Gradle.AliveStateTest.testCellShouldDieWithZeroNeighbours.executor": "Run",
+    "Gradle.CellTest.TestCountIs4IfAllNeighboursAreHalfAlive.executor": "Run",
+    "Gradle.CellTest.TestCountIs8IfAllNeighboursAreAlive.executor": "Run",
+    "Gradle.CellTest.TestCountIsZeroIfAllNeighboursAreDead.executor": "Run",
+    "Gradle.CellTest.executor": "Run",
     "Gradle.ConveyGameOfLife [:GameEntryPoint.main()].executor": "Run",
     "Gradle.DeadStateTest.executor": "Run",
+    "Gradle.DeadStateTest.testStateValueShouldBe0.executor": "Run",
+    "Gradle.GridsTest.executor": "Run",
+    "Gradle.GridsTest.testAddLocation.executor": "Run",
+    "Gradle.GridsTest.testGettingCellFromCoordinate.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -87,8 +92,8 @@
       <recent name="org.swiggy" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DeadStateTest">
-    <configuration name="AliveStateTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CellTest">
+    <configuration name="CellTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -101,7 +106,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.AliveStateTest&quot;" />
+            <option value="&quot;org.swiggy.CellTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -112,7 +117,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AliveStateTest.testCellShouldDieWithZeroNeighbours" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest.TestCountIs4IfAllNeighboursAreHalfAlive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -125,7 +130,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.AliveStateTest.testCellShouldDieWithZeroNeighbours&quot;" />
+            <option value="&quot;org.swiggy.CellTest.TestCountIs4IfAllNeighboursAreHalfAlive&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -136,7 +141,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="DeadStateTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest.TestCountIs8IfAllNeighboursAreAlive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -149,7 +154,55 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.DeadStateTest&quot;" />
+            <option value="&quot;org.swiggy.CellTest.TestCountIs8IfAllNeighboursAreAlive&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CellTest.TestCountIsZeroIfAllNeighboursAreDead" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.swiggy.CellTest.TestCountIsZeroIfAllNeighboursAreDead&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GridsTest.testGettingCellFromCoordinate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.swiggy.GridsTest.testGettingCellFromCoordinate&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -162,9 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DeadStateTest" />
-        <item itemvalue="Gradle.AliveStateTest" />
-        <item itemvalue="Gradle.AliveStateTest.testCellShouldDieWithZeroNeighbours" />
+        <item itemvalue="Gradle.CellTest" />
+        <item itemvalue="Gradle.CellTest.TestCountIsZeroIfAllNeighboursAreDead" />
+        <item itemvalue="Gradle.CellTest.TestCountIs4IfAllNeighboursAreHalfAlive" />
+        <item itemvalue="Gradle.CellTest.TestCountIs8IfAllNeighboursAreAlive" />
+        <item itemvalue="Gradle.GridsTest.testGettingCellFromCoordinate" />
       </list>
     </recent_temporary>
   </component>
@@ -184,6 +239,19 @@
       <option name="presentableId" value="Default" />
       <updated>1706798915282</updated>
     </task>
+    <task id="LOCAL-00001" summary="Implemented CellState">
+      <option name="closed" value="true" />
+      <created>1706816062691</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706816062691</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented CellState" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented CellState" />
   </component>
 </project>
