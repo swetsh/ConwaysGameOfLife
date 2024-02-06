@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class GameLog {
     private final Scanner scanner;
-    private int m;
-    private int n;
-    private double s;
 
     public GameLog() {
         scanner = new Scanner(System.in);
@@ -14,14 +11,13 @@ public class GameLog {
     }
 
     public Board contructBoard() {
-
         System.out.print("Enter board height: ");
-        this.m = scanner.nextInt();
+        int m = scanner.nextInt();
         System.out.print("Enter board width: ");
-        this.n = scanner.nextInt();
+        int n = scanner.nextInt();
         System.out.print("Enter seed Value: ");
-        this.s = scanner.nextDouble();
-        return new Board(this.m, this.n, this.s);
+        double s = scanner.nextDouble();
+        return new Board(m, n, s);
     }
 
 }
