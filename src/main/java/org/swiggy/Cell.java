@@ -16,7 +16,7 @@ public class Cell {
         return currentState.toString();
     }
 
-    public int neighboursCount(int rows, int columns) {
+    public void updateNeighbours(int rows, int columns) {
         int count = 0;
         int[][] positions = {
                 {-1, -1}, {-1, 0}, {-1, 1},
@@ -32,7 +32,6 @@ public class Cell {
             count += Grids.getInstance().cell(new Coordinate(newRow, newColumn)).currentState.value();
         }
         lastNeighboursCount = count;
-        return count;
     }
 
     public int update() {

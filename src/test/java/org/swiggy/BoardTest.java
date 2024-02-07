@@ -84,7 +84,7 @@ class BoardTest {
 
     @Test
     public void testIsAllDeadShouldBeFalseWhenFewCellsAreAlive() {
-        Board board = new Board(2, 2, 0.3);
+        Board board = new Board(10, 10, 0.3);
 
         assertFalse(board.isAllDead());
     }
@@ -104,4 +104,6 @@ class BoardTest {
 
         assertFalse(board.isAllDead());
     }
+
+
 }

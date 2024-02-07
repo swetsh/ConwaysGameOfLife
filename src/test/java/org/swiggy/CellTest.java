@@ -29,7 +29,7 @@ class CellTest {
         Cell cell = new Cell(new DeadState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(0, cell.update());
     }
@@ -49,7 +49,7 @@ class CellTest {
         Cell cell = new Cell(new DeadState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(0, cell.update());
     }
@@ -68,7 +68,7 @@ class CellTest {
         Cell cell = new Cell(new AliveState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(-1, cell.update());
     }
@@ -87,7 +87,7 @@ class CellTest {
         Cell cell = new Cell(new DeadState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(1, cell.update());
     }
@@ -106,7 +106,7 @@ class CellTest {
         Cell cell = new Cell(new AliveState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(0, cell.update());
     }
@@ -125,7 +125,7 @@ class CellTest {
         Cell cell = new Cell(new AliveState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(0, cell.update());
     }
@@ -144,7 +144,7 @@ class CellTest {
         Cell cell = new Cell(new DeadState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(0, cell.update());
     }
@@ -164,7 +164,7 @@ class CellTest {
         Cell cell = new Cell(new AliveState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(-1, cell.update());
     }
@@ -183,7 +183,7 @@ class CellTest {
         Cell cell = new Cell(new AliveState());
         grids.AddLocation(new Coordinate(1,1), cell);
 
-        cell.neighboursCount(3,3);
+        cell.updateNeighbours(3,3);
 
         assertEquals(-1, cell.update());
     }

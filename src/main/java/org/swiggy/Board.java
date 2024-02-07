@@ -22,8 +22,7 @@ public class Board {
         this.columns = columns;
         for (int i=0; i<this.rows; i++) {
             for(int j=0; j<this.columns; j++) {
-                double randomValue = Math.random();
-                CellState state = (randomValue < seed) ? new AliveState() : new DeadState();
+                CellState state = new RandomState(seed).state;
                 if (state instanceof AliveState) {
                     aliveCellCount++;
                 }
@@ -34,18 +33,17 @@ public class Board {
 
 
     public void evolve() {
-        int[][] neighboursGrid = new int[rows][columns];
         for (int i=0; i<rows; i++) {
             for(int j=0; j<columns; j++) {
-                neighboursGrid[i][j] = Grids.getInstance().cell(new Coordinate(i, j)).neighboursCount(rows, columns);
+                Grids.getInstance().cell(new Coordinate(i, j)).updateNeighbours(rows, columns);
             }
         }
+
         for (int i=0; i<rows; i++) {
             for(int j=0; j<columns; j++) {
-                Grids.getInstance().cell(new Coordinate(i, j)).update();
+                aliveCellCount += Grids.getInstance().cell(new Coordinate(i, j)).update();
             }
         }
-        aliveCellCount = 0;
     }
 
     public boolean isAllDead() {
