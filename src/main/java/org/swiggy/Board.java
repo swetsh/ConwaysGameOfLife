@@ -42,7 +42,7 @@ public class Board {
         }
         for (int i=0; i<rows; i++) {
             for(int j=0; j<columns; j++) {
-                Grids.getInstance().cell(new Coordinate(i, j)).update(neighboursGrid[i][j]);
+                Grids.getInstance().cell(new Coordinate(i, j)).update();
             }
         }
         aliveCellCount = 0;

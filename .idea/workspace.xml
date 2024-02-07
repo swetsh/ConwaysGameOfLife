@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Add GameLog and EntryPoint">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/states/AliveStateTest.java" afterDir="false" />
+    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Added isAllDead to Check Alive Cells in Board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/AliveState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/states/AliveState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/CellState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/states/CellState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/DeadState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/states/DeadState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/AliveStateTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/BoardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/CellTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/DeadStateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/states/DeadStateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +69,15 @@
     "Gradle.CellTest.TestCountIs8IfAllNeighboursAreAlive.executor": "Run",
     "Gradle.CellTest.TestCountIsNot8IfAllNeighboursAreAliveButProvidedWrongRow.executor": "Run",
     "Gradle.CellTest.TestCountIsZeroIfAllNeighboursAreDead.executor": "Run",
+    "Gradle.CellTest.TestUpdateShouldReturn0IfADeadCellsAllNeighboursAreAlive.executor": "Run",
+    "Gradle.CellTest.TestUpdateShouldReturnMinus1IfAnAliveCellsAllNeighboursAreAlive.executor": "Run",
+    "Gradle.CellTest.TestUpdateShouldReturnMinus1IfAnAliveCellsHalfNeighboursAreAlive.executor": "Run",
     "Gradle.CellTest.executor": "Run",
+    "Gradle.CellTest.testUpdateShouldReturn0IfADeadCellHasAllDeadNeighbours.executor": "Run",
+    "Gradle.CellTest.testUpdateShouldReturn0IfAnAliveCellHas2AliveNeighbours.executor": "Run",
+    "Gradle.CellTest.testUpdateShouldReturn0IfAnAliveCellHas3AliveNeighbours.executor": "Run",
+    "Gradle.CellTest.testUpdateShouldReturn0IfAnDeadCellHas2AliveNeighbours.executor": "Run",
+    "Gradle.CellTest.testUpdateShouldReturn1IfADeadCellHas3AliveNeighbours.executor": "Run",
     "Gradle.ConveyGameOfLife [:GameEntryPoint.main()].executor": "Run",
     "Gradle.DeadStateTest.executor": "Run",
     "Gradle.DeadStateTest.testStateValueShouldBe0.executor": "Run",
@@ -109,8 +109,8 @@
       <recent name="org.swiggy.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BoardTest.testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce">
-    <configuration name="BoardTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CellTest">
+    <configuration name="CellTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -123,7 +123,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest&quot;" />
+            <option value="&quot;org.swiggy.CellTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -134,7 +134,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIsAllDeadShouldBeFalseWhenAllCellsAreAlive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest.TestUpdateShouldReturnMinus1IfAnAliveCellsHalfNeighboursAreAlive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -147,7 +147,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIsAllDeadShouldBeFalseWhenAllCellsAreAlive&quot;" />
+            <option value="&quot;org.swiggy.CellTest.TestUpdateShouldReturnMinus1IfAnAliveCellsHalfNeighboursAreAlive&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -158,7 +158,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest.testUpdateShouldReturn0IfAnAliveCellHas2AliveNeighbours" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -171,7 +171,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce&quot;" />
+            <option value="&quot;org.swiggy.CellTest.testUpdateShouldReturn0IfAnAliveCellHas2AliveNeighbours&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -182,7 +182,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIsAllTestShouldBeFalseWhenFewCellsAreAlive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest.testUpdateShouldReturn0IfAnAliveCellHas3AliveNeighbours" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -195,7 +195,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIsAllTestShouldBeFalseWhenFewCellsAreAlive&quot;" />
+            <option value="&quot;org.swiggy.CellTest.testUpdateShouldReturn0IfAnAliveCellHas3AliveNeighbours&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -206,7 +206,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIsAllTestShouldBeTrueWhenAllCellsAreAliveAndItsEvolvedOnce" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest.testUpdateShouldReturn0IfAnDeadCellHas2AliveNeighbours" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -219,7 +219,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIsAllTestShouldBeTrueWhenAllCellsAreAliveAndItsEvolvedOnce&quot;" />
+            <option value="&quot;org.swiggy.CellTest.testUpdateShouldReturn0IfAnDeadCellHas2AliveNeighbours&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -232,11 +232,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BoardTest.testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce" />
-        <item itemvalue="Gradle.BoardTest.testIsAllDeadShouldBeFalseWhenAllCellsAreAlive" />
-        <item itemvalue="Gradle.BoardTest" />
-        <item itemvalue="Gradle.BoardTest.testIsAllTestShouldBeTrueWhenAllCellsAreAliveAndItsEvolvedOnce" />
-        <item itemvalue="Gradle.BoardTest.testIsAllTestShouldBeFalseWhenFewCellsAreAlive" />
+        <item itemvalue="Gradle.CellTest" />
+        <item itemvalue="Gradle.CellTest.TestUpdateShouldReturnMinus1IfAnAliveCellsHalfNeighboursAreAlive" />
+        <item itemvalue="Gradle.CellTest.testUpdateShouldReturn0IfAnDeadCellHas2AliveNeighbours" />
+        <item itemvalue="Gradle.CellTest.testUpdateShouldReturn0IfAnAliveCellHas2AliveNeighbours" />
+        <item itemvalue="Gradle.CellTest.testUpdateShouldReturn0IfAnAliveCellHas3AliveNeighbours" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707225610841</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added isAllDead to Check Alive Cells in Board">
+      <option name="closed" value="true" />
+      <created>1707285615396</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707285615396</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,6 +323,7 @@
     <MESSAGE value="Implemented Cell and Grid" />
     <MESSAGE value="Implemented Board" />
     <MESSAGE value="Add GameLog and EntryPoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GameLog and EntryPoint" />
+    <MESSAGE value="Added isAllDead to Check Alive Cells in Board" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added isAllDead to Check Alive Cells in Board" />
   </component>
 </project>

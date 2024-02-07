@@ -1,9 +1,11 @@
 package org.swiggy;
 
+import org.swiggy.states.AliveState;
 import org.swiggy.states.CellState;
 
 public class Cell {
     private CellState currentState;
+    private int lastNeighboursCount;
 
     public Cell(CellState cellState) {
         currentState = cellState;
@@ -29,10 +31,20 @@ public class Cell {
             int newColumn = (coordinate.y() + positions[i][1] + columns) % columns;
             count += Grids.getInstance().cell(new Coordinate(newRow, newColumn)).currentState.value();
         }
+        lastNeighboursCount = count;
         return count;
     }
 
-    public void update(int aliveNeighbours) {
-        currentState = currentState.nextState(aliveNeighbours);
+    public int update() {
+        boolean wasAlive = currentState instanceof AliveState;
+
+        currentState = currentState.nextState(lastNeighboursCount);
+
+        if (currentState instanceof AliveState) {
+            if (wasAlive) return 0;
+            return 1;
+        }
+        if (wasAlive) return -1;
+        return 0;
     }
 }
