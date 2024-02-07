@@ -1,4 +1,4 @@
-package org.swiggy;
+package org.swiggy.states;
 
 import org.junit.jupiter.api.Test;
 

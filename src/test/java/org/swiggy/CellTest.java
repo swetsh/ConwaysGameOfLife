@@ -1,6 +1,8 @@
 package org.swiggy;
 
 import org.junit.jupiter.api.*;
+import org.swiggy.states.AliveState;
+import org.swiggy.states.DeadState;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

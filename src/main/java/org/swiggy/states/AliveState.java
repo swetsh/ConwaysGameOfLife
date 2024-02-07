@@ -1,4 +1,4 @@
-package org.swiggy;
+package org.swiggy.states;
 
 public class AliveState implements CellState {
     @Override

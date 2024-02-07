@@ -67,4 +67,41 @@ class BoardTest {
 
         assertTrue(Math.abs(aliveCount-20) < 10);
     }
+
+    @Test
+    public void testIsAllDeadShouldBeTrueWhenAllCellsAreDead() {
+        Board board = new Board(2, 2, 0);
+
+        assertTrue(board.isAllDead());
+    }
+
+    @Test
+    public void testIsAllDeadShouldBeFalseWhenAllCellsAreAlive() {
+        Board board = new Board(2, 2, 1);
+
+        assertFalse(board.isAllDead());
+    }
+
+    @Test
+    public void testIsAllDeadShouldBeFalseWhenFewCellsAreAlive() {
+        Board board = new Board(2, 2, 0.3);
+
+        assertFalse(board.isAllDead());
+    }
+
+    @Test
+    public void testIsAllDeadShouldBeTrueWhenAllCellsAreAliveAndItsEvolvedOnce() {
+        Board board = new Board(2, 2, 1);
+        board.evolve();
+
+        assertTrue(board.isAllDead());
+    }
+
+    @Test
+    public void testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce() {
+        Board board = new Board(20, 20, 0.5);
+        board.evolve();
+
+        assertFalse(board.isAllDead());
+    }
 }

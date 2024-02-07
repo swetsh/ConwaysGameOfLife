@@ -1,6 +1,7 @@
 package org.swiggy;
 
 import org.junit.jupiter.api.Test;
+import org.swiggy.states.AliveState;
 
 import static org.junit.jupiter.api.Assertions.*;
 

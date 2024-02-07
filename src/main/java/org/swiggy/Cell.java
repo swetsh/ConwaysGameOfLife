@@ -1,5 +1,7 @@
 package org.swiggy;
 
+import org.swiggy.states.CellState;
+
 public class Cell {
     private CellState currentState;
 

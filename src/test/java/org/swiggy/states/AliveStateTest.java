@@ -1,4 +1,4 @@
-package org.swiggy;
+package org.swiggy.states;
 
 import org.junit.jupiter.api.Test;
 
@@ -31,4 +31,5 @@ class AliveStateTest {
         AliveState aliveState = new AliveState();
         assertInstanceOf(AliveState.class, aliveState.nextState(2));
     }
+
 }
