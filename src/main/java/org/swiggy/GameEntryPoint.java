@@ -12,6 +12,7 @@ public class GameEntryPoint {
         int loopCount = 100;
         do{
             System.out.println(board);
+            if (board.isAllDead()) break;
             board.evolve();
             Thread.sleep(1000);
         }while (loopCount-- > 0);

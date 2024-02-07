@@ -23,9 +23,9 @@ public class Board {
         for (int i=0; i<this.rows; i++) {
             for(int j=0; j<this.columns; j++) {
                 CellState state = new RandomState(seed).state;
-                if (state instanceof AliveState) {
-                    aliveCellCount++;
-                }
+
+                if (state instanceof AliveState) aliveCellCount++;
+
                 Grids.getInstance().AddLocation(new Coordinate(i, j), new Cell(state));
             }
         }

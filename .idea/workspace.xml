@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Implement cell update to return an integer representing the status change: alive or dead.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/RandomState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/RandomStateTest.java" afterDir="false" />
+    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Introduced Custom Random Class to get Random CellState">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/GameEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/GameEntryPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/CellTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +28,12 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -59,17 +63,26 @@
   "keyToString": {
     "Gradle.AliveStateTest.executor": "Run",
     "Gradle.AliveStateTest.testCellShouldDieWithZeroNeighbours.executor": "Run",
+    "Gradle.BoardTest (1).executor": "Run",
     "Gradle.BoardTest.TestBoardWithNegativeDimensionExpectedRuntime.executor": "Run",
     "Gradle.BoardTest.TestBoardWithNegativeSeedExpectedRuntime.executor": "Run",
     "Gradle.BoardTest.executor": "Run",
+    "Gradle.BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldBeFalseElseViseVersaFor100Iteration.executor": "Run",
+    "Gradle.BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations.executor": "Run",
+    "Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100Iteration.executor": "Run",
+    "Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0.executor": "Run",
+    "Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent.executor": "Run",
+    "Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent.executor": "Run",
     "Gradle.BoardTest.testIsAllDeadShouldBeFalseWhenAllCellsAreAlive.executor": "Run",
     "Gradle.BoardTest.testIsAllDeadShouldBeFalseWhenFewCellsAreAlive.executor": "Run",
+    "Gradle.BoardTest.testIsAllDeadShouldBeFalseWhenFewCellsAreAliveAndItsEvolvedOnce.executor": "Debug",
     "Gradle.BoardTest.testIsAllDeadShouldBeTrueWhenAllCellsAreAliveAndItsEvolvedOnce.executor": "Run",
     "Gradle.BoardTest.testIsAllDeadShouldBeTrueWhenAllCellsAreDead.executor": "Run",
     "Gradle.BoardTest.testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce.executor": "Run",
     "Gradle.BoardTest.testIsAllTestShouldBeFalseWhenAllCellsAreAlive.executor": "Run",
     "Gradle.BoardTest.testIsAllTestShouldBeFalseWhenFewCellsAreAlive.executor": "Run",
     "Gradle.BoardTest.testIsAllTestShouldBeTrueWhenAllCellsAreAliveAndItsEvolvedOnce.executor": "Run",
+    "Gradle.Build ConveyGameOfLife.executor": "Run",
     "Gradle.CellTest.TestCountIs4IfAllNeighboursAreHalfAlive.executor": "Run",
     "Gradle.CellTest.TestCountIs8IfAllNeighboursAreAlive.executor": "Run",
     "Gradle.CellTest.TestCountIsNot8IfAllNeighboursAreAliveButProvidedWrongRow.executor": "Run",
@@ -93,6 +106,7 @@
     "Gradle.RandomStateTest.testRandomStateIsAliveForSeed1.executor": "Run",
     "Gradle.RandomStateTest.testRandomStateIsDeadForSeed0.executor": "Run",
     "Gradle.RandomStateTest.testRandomStateIsNotNull.executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -100,7 +114,11 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "/Users/swet.shreet_ftc/IdeaProjects/ConveyGameOfLife/src/main/java/org/swiggy/Main.java"
+    "onboarding.tips.debug.path": "/Users/swet.shreet_ftc/IdeaProjects/ConveyGameOfLife/src/main/java/org/swiggy/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -118,7 +136,7 @@
       <recent name="org.swiggy.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BoardTest">
+  <component name="RunManager">
     <configuration name="BoardTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -143,7 +161,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="RandomStateTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -156,7 +174,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.RandomStateTest&quot;" />
+            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -167,7 +185,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="RandomStateTest.testRandomStateIsAliveForSeed1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -180,7 +198,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.RandomStateTest.testRandomStateIsAliveForSeed1&quot;" />
+            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -191,7 +209,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="RandomStateTest.testRandomStateIsDeadForSeed0" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -204,7 +222,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.RandomStateTest.testRandomStateIsDeadForSeed0&quot;" />
+            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -215,7 +233,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="RandomStateTest.testRandomStateIsNotNull" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -228,7 +246,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.RandomStateTest.testRandomStateIsNotNull&quot;" />
+            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -242,10 +260,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.BoardTest" />
-        <item itemvalue="Gradle.RandomStateTest.testRandomStateIsNotNull" />
-        <item itemvalue="Gradle.RandomStateTest" />
-        <item itemvalue="Gradle.RandomStateTest.testRandomStateIsDeadForSeed0" />
-        <item itemvalue="Gradle.RandomStateTest.testRandomStateIsAliveForSeed1" />
+        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent" />
+        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent" />
+        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0" />
+        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations" />
       </list>
     </recent_temporary>
   </component>
@@ -321,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707287218369</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Introduced Custom Random Class to get Random CellState">
+      <option name="closed" value="true" />
+      <created>1707293221682</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707293221682</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,6 +368,14 @@
     <MESSAGE value="Add GameLog and EntryPoint" />
     <MESSAGE value="Added isAllDead to Check Alive Cells in Board" />
     <MESSAGE value="Implement cell update to return an integer representing the status change: alive or dead." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement cell update to return an integer representing the status change: alive or dead." />
+    <MESSAGE value="Introduced Custom Random Class to get Random CellState" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introduced Custom Random Class to get Random CellState" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.swiggy.BoardTest" memberName="grids" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

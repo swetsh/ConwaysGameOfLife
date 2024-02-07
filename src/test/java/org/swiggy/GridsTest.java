@@ -32,7 +32,7 @@ class GridsTest {
     @Test
     void testGettingCellFromCoordinate() {
         Coordinate coordinate = new Coordinate(1, 1);
-        Cell cell =new Cell(new AliveState());
+        Cell cell = new Cell(new AliveState());
 
         Grids.getInstance().AddLocation(coordinate, cell);
 

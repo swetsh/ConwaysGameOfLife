@@ -1,12 +1,23 @@
 package org.swiggy;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.swiggy.exceptions.InvalidDimensionException;
 import org.swiggy.exceptions.InvalidSeedValueException;
+import org.swiggy.states.AliveState;
+import org.swiggy.states.DeadState;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class BoardTest {
+    private Grids grids;
+
+    @BeforeEach
+    void setUp() {
+        grids = Grids.getInstance();
+    }
+
 
     @Test
     public void TestBoardWithNegativeDimensionExpectedRuntime() {
@@ -98,12 +109,49 @@ class BoardTest {
     }
 
     @Test
-    public void testIsAllDeadShouldBeTrueWhenFewCellsAreAliveAndItsEvolvedOnce() {
-        Board board = new Board(20, 20, 0.5);
-        board.evolve();
+    public void testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0() {
 
-        assertFalse(board.isAllDead());
+        Board board = new Board(4, 4,0);
+
+        for (int i=0; i<100; i++) {
+            long aliveCount = board.toString().chars().filter(ch -> ch == '*').count();
+            if (aliveCount == 0)
+                assertTrue(board.isAllDead());
+            else
+                assertFalse(board.isAllDead());
+            board.evolve();
+        }
     }
 
+    @Test
+    public void testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent() {
+
+        Board board = new Board(4, 4,0.4);
+
+        for (int i=0; i<100; i++) {
+            long aliveCount = board.toString().chars().filter(ch -> ch == '*').count();
+            if (aliveCount == 0)
+                assertTrue(board.isAllDead());
+            else
+                assertFalse(board.isAllDead());
+            board.evolve();
+        }
+    }
+
+
+    @Test
+    public void testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent() {
+
+        Board board = new Board(4, 4,1);
+
+        for (int i=0; i<100; i++) {
+            long aliveCount = board.toString().chars().filter(ch -> ch == '*').count();
+            if (aliveCount == 0)
+                assertTrue(board.isAllDead());
+            else
+                assertFalse(board.isAllDead());
+            board.evolve();
+        }
+    }
 
 }
