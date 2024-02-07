@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Introduced Custom Random Class to get Random CellState">
+    <list default="true" id="1768d534-81dd-4c6a-b44d-3b19a4361747" name="Changes" comment="Enhanced test coverage to verify correct reporting of all cells being dead">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/exceptions/CellDoesNotExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/exceptions/CoordinateDoesNotExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/GameEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/GameEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/Grids.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/Grids.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/swiggy/RandomState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/swiggy/RandomState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/swiggy/GridsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +41,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,8 +100,13 @@
     "Gradle.DeadStateTest.executor": "Run",
     "Gradle.DeadStateTest.testStateValueShouldBe0.executor": "Run",
     "Gradle.GridsTest.executor": "Run",
+    "Gradle.GridsTest.teatShouldThrowExceptionWhileAddingIfCoordinateAlreadyExist.executor": "Run",
     "Gradle.GridsTest.testAddLocation.executor": "Run",
     "Gradle.GridsTest.testGettingCellFromCoordinate.executor": "Run",
+    "Gradle.GridsTest.testGettingCellShouldThrowExceptionIfCellDoesNotExist.executor": "Run",
+    "Gradle.GridsTest.testGettingCellShouldThrowExceptionIfCoordinateDoesNotExist.executor": "Run",
+    "Gradle.GridsTest.testGettingCoordinateFromCell.executor": "Run",
+    "Gradle.GridsTest.testGettingCoordinateFromCellShouldThrowExceptionIfCellDoesNotExist.executor": "Run",
     "Gradle.RandomStateTest.executor": "Run",
     "Gradle.RandomStateTest.testRandomStateIsAliveForSeed1.executor": "Run",
     "Gradle.RandomStateTest.testRandomStateIsDeadForSeed0.executor": "Run",
@@ -136,7 +141,7 @@
       <recent name="org.swiggy.exceptions" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.CellTest">
     <configuration name="BoardTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -161,7 +166,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CellTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -174,7 +179,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations&quot;" />
+            <option value="&quot;org.swiggy.CellTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -185,7 +190,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -198,7 +203,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0&quot;" />
+            <option value="&quot;org.swiggy.GridsTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -209,7 +214,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridsTest.testGettingCellShouldThrowExceptionIfCoordinateDoesNotExist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -222,7 +227,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent&quot;" />
+            <option value="&quot;org.swiggy.GridsTest.testGettingCellShouldThrowExceptionIfCoordinateDoesNotExist&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -233,7 +238,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridsTest.testGettingCoordinateFromCellShouldThrowExceptionIfCellDoesNotExist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -246,7 +251,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.swiggy.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent&quot;" />
+            <option value="&quot;org.swiggy.GridsTest.testGettingCoordinateFromCellShouldThrowExceptionIfCellDoesNotExist&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -259,11 +264,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CellTest" />
         <item itemvalue="Gradle.BoardTest" />
-        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed100Percent" />
-        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed40Percent" />
-        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsZeroIsAllDeadShouldGiveTrueFor100IterationsAndSeed0" />
-        <item itemvalue="Gradle.BoardTest.testIfAliveCountIsNotZeroIsAllDeadShouldGiveFalseFor100Iterations" />
+        <item itemvalue="Gradle.GridsTest" />
+        <item itemvalue="Gradle.GridsTest.testGettingCoordinateFromCellShouldThrowExceptionIfCellDoesNotExist" />
+        <item itemvalue="Gradle.GridsTest.testGettingCellShouldThrowExceptionIfCoordinateDoesNotExist" />
       </list>
     </recent_temporary>
   </component>
@@ -347,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707293221682</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Enhanced test coverage to verify correct reporting of all cells being dead">
+      <option name="closed" value="true" />
+      <created>1707299015891</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707299015891</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,7 +382,8 @@
     <MESSAGE value="Added isAllDead to Check Alive Cells in Board" />
     <MESSAGE value="Implement cell update to return an integer representing the status change: alive or dead." />
     <MESSAGE value="Introduced Custom Random Class to get Random CellState" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduced Custom Random Class to get Random CellState" />
+    <MESSAGE value="Enhanced test coverage to verify correct reporting of all cells being dead" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhanced test coverage to verify correct reporting of all cells being dead" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
